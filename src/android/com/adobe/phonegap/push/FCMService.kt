@@ -448,7 +448,7 @@ class FCMService : FirebaseMessagingService() {
       this,
       requestCode,
       notificationIntent,
-      PendingIntent.FLAG_UPDATE_CURRENT
+      PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
     )
     val dismissedNotificationIntent = Intent(
       this,
@@ -696,7 +696,7 @@ class FCMService : FirebaseMessagingService() {
               pIntent = PendingIntent.getActivity(
                 this, uniquePendingIntentRequestCode,
                 intent,
-                PendingIntent.FLAG_UPDATE_CURRENT
+                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
               )
             }
 
@@ -706,7 +706,7 @@ class FCMService : FirebaseMessagingService() {
               pIntent = PendingIntent.getBroadcast(
                 this, uniquePendingIntentRequestCode,
                 intent,
-                PendingIntent.FLAG_UPDATE_CURRENT
+                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
               )
             }
           }
