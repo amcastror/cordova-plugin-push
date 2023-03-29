@@ -467,7 +467,7 @@ class FCMService : FirebaseMessagingService() {
       this,
       requestCode,
       dismissedNotificationIntent,
-      PendingIntent.FLAG_CANCEL_CURRENT
+      PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_CANCEL_CURRENT
     )
 
     val mBuilder: NotificationCompat.Builder =
